@@ -19,6 +19,7 @@
   --body-font: "Syne", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
+  --h3-font-size: 1rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -322,23 +323,97 @@ img {
   transition: box-shadow .4s;
 }
 
-.login-button:hover{
+.login-button:hover {
   box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
 }
 
 /* Show login */
-.show-login{
+.show-login {
   opacity: 1;
   pointer-events: initial;
 }
 
-.show-login .login-form{
+.show-login .login-form {
   transform: translateY(0);
 }
 
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
+@media screen and (min-width: 576px) {
 
+  .search,
+  .login {
+    padding-top: 10rem;
+  }
+
+  .search-form {
+    max-width: 450px;
+    margin-inline: auto;
+  }
+
+  .search-close,
+  .login-close {
+    width: max-content;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    font-size: 2rem;
+  }
+
+  .login-form {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+}
 
 /* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    column-gap: 3rem;
+  }
+
+  .nav-close,
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    margin-left: auto;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .login-form {
+    padding: 3rem 2rem 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav-container,
+  .nav-logo {
+    font-size: var(--h2-font-size);
+  }
+
+  .nav-container,
+  .nav-menu,
+  .nav-list,
+  .nav-item,
+  .nav-link {
+    font-size: var(--h3-font-size);
+  }
+
+  .nav-container,
+  .nav-actions {
+    font-size: var(--h3-font-size);
+  }
+}
