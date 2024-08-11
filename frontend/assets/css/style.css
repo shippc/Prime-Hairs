@@ -17,21 +17,54 @@
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Syne", sans-serif;
+  --title-font: 'Raleway', sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
-  --normal-font-size: .938rem;
   --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
 
+  /*========== Margenes Bottom ==========*/
+  --mb-0-25: .25rem;
+  --mb-0-5: .5rem;
+  --mb-0-75: .75rem;
+  --mb-1: 1rem;
+  --mb-1-25: 1.25rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
   /*========== z index ==========*/
+  --z-tooltip: 10;
   --z-fixed: 100;
   --z-modal: 1000;
+
+  /*========== Hover overlay ==========*/
+  --img-transition: .3s;
+  --img-hidden: hidden;
+  --img-scale: scale(1.1);
 }
 
 /*========== Responsive typography ==========*/
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .838rem;
+  }
+}
+
 @media screen and (min-width: 1023px) {
   :root {
     --h2-font-size: 1.5rem;
@@ -50,22 +83,30 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-input,
-button {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-
 body {
+
   background-color: var(--body-color);
   color: var(--text-color);
 }
 
-input,
-button {
-  border: none;
-  outline: none;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  font-family: var(--title-font);
 }
 
 ul {
@@ -76,32 +117,47 @@ a {
   text-decoration: none;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 2.5rem;
+}
+
+.section-title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: var(--mb-2);
+}
+
 .container {
-  max-width: 1120px;
+  max-width: 968px;
   margin-inline: 1.5rem;
+  margin-left: var(--mb-1);
+  margin-right: var(--mb-1);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
 }
 
 .main {
   position: relative;
   height: 100vh;
-}
-
-.main-bg {
-  position: var(--z-fixed);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: -1;
 }
 
 .search,
@@ -338,6 +394,89 @@ img {
   transform: translateY(0);
 }
 
+/*=============== HOME ===============*/
+.home-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 83%;
+}
+
+.home-container {
+  position: relative;
+  height: calc(100vh - var(--header-height));
+  align-content: center;
+  row-gap: 3rem;
+}
+
+.home-data-subtitle,
+.home-data-title,
+.home-social-link,
+.home-info {
+  color: var(--first-color);
+}
+
+.home-data-subtitle {
+  display: block;
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-0-75);
+}
+
+.home-data-title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--mb-2-5);
+}
+
+.home-social {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.home-social-link {
+  font-size: 1.2rem;
+  width: max-content;
+}
+
+.home-info {
+  background-color: var(--first-color);
+  display: flex;
+  padding: 1.5rem 1rem;
+  align-items: center;
+  column-gap: .5rem;
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  width: 278px;
+}
+
+.home-info-title {
+  display: block;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-0-75);
+}
+
+.home-info-button {
+  font-size: var(--smaller-font-size);
+}
+
+.home-info-overlay {
+  overflow: var(--img-hidden);
+}
+
+.home-info-img {
+  width: 145px;
+  transition: var(--img-transition);
+}
+
+.home-info-img:hover {
+  transform: var(--img-scale);
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
