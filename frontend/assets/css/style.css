@@ -103,7 +103,8 @@ img {
   z-index: -1;
 }
 
-.search {
+.search,
+.login {
   position: fixed;
   top: 0;
   left: 0;
@@ -112,14 +113,15 @@ img {
   z-index: var(--z-modal);
   background-color: hsla(230, 75%, 32%, 1.);
   backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);  /* for safari */
+  -webkit-backdrop-filter: blur(24px); /* for safari */  
   padding: 8rem 1.5rem 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity .4s;
 }
 
-.search-close{
+.search-close,
+.login-close {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -242,19 +244,97 @@ img {
 }
 
 /* Show search */
-.show-search{
+.show-search {
   opacity: 1;
   pointer-events: initial;
 }
 
-.show-search .search-form{
+.show-search .search-form {
   transform: translate(0)
 }
 
 /*=============== LOGIN ===============*/
+.login-form,
+.login-group {
+  display: grid;
+}
 
+.login-form {
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 2.5rem;
+  box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+  border-radius: 1rem;
+  row-gap: 1.25rem;
+  text-align: center;
+  transform: translateY(-1rem);
+  transition: transform .4s;
+}
+
+.login-title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+}
+
+.login-group {
+  row-gap: 1rem;
+}
+
+.login-label {
+  display: block;
+  text-align: initial;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  margin-bottom: .25rem;
+}
+
+.login-input {
+  width: 100%;
+  background-color: var(--container-color);
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  border-radius: .5rem;
+  color: var(--text-color);
+}
+
+.login-input::placeholder {
+  color: var(--text-color);
+}
+
+.login-signup a {
+  color: var(--first-color);
+}
+
+.login-forgot {
+  display: inline;
+  color: var(--first-color);
+  margin-bottom: 1.25rem;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: var(--first-color);
+  width: 100%;
+  color: #fff;
+  font-weight: var(--font-semi-bold);
+  padding: 1.5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: box-shadow .4s;
+}
+
+.login-button:hover{
+  box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
+}
 
 /* Show login */
+.show-login{
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.show-login .login-form{
+  transform: translateY(0);
+}
 
 
 /*=============== BREAKPOINTS ===============*/
