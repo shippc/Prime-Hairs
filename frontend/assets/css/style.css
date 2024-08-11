@@ -114,7 +114,8 @@ img {
   z-index: var(--z-modal);
   background-color: hsla(230, 75%, 32%, 1.);
   backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px); /* for safari */  
+  -webkit-backdrop-filter: blur(24px);
+  /* for safari */
   padding: 8rem 1.5rem 0;
   opacity: 0;
   pointer-events: none;
@@ -415,5 +416,15 @@ img {
   .nav-container,
   .nav-actions {
     font-size: var(--h3-font-size);
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .login-form {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .search-form {
+    max-width: 650px;
   }
 }
