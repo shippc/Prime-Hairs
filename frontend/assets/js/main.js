@@ -43,4 +43,15 @@ loginClose.addEventListener('click', () => {
     login.classList.remove('show-login')
 })
 
-
+/* Swiper services */
+var swiper = new Swiper(".services-container", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    spaceBetween: 32,
+    coverflowEffect: {
+        rotate: 0,
+    },        
+});

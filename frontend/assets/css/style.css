@@ -542,8 +542,49 @@ input {
 }
 
 .about-img-one:hover,
-.about-img-two:hover{
+.about-img-two:hover {
   transform: var(--img-scale);
+}
+
+/*=============== SERVICES ===============*/
+.services-card {
+  position: relative;
+  width: 200px;
+  overflow: var(--img-hidden);
+}
+
+.services-data{
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1rem;
+}
+
+.services-title,
+.services-description{
+  color: var(--white-color);  
+}
+
+.services-title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-25);
+}
+
+.services-description{
+  display: block;
+  font-size: var(--smaller-font-size);
+}
+
+.services-img{
+  transition: var(--img-transition);
+}
+
+.services-img:hover{
+  transform: var(--img-scale);
+}
+
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right{
+  background-image: none;
 }
 
 /*=============== BREAKPOINTS ===============*/
