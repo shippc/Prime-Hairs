@@ -13,6 +13,7 @@
   --body-color: hsl(230, 100%, 98%);
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
+  --white-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -115,6 +116,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: var(--white-color);
 }
 
 body,
@@ -438,8 +440,9 @@ input {
 }
 
 .home-social-link {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   width: max-content;
+  color: var(--white-color);
 }
 
 .home-info {
@@ -451,7 +454,7 @@ input {
   position: absolute;
   right: 0;
   bottom: 1rem;
-  width: 278px;
+  width: 278px;  
 }
 
 .home-info-title {
@@ -459,10 +462,12 @@ input {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-0-75);
+  color: var(--white-color);
 }
 
 .home-info-button {
   font-size: var(--smaller-font-size);
+  color: var(--white-color);
 }
 
 .home-info-overlay {
@@ -476,6 +481,34 @@ input {
 
 .home-info-img:hover {
   transform: var(--img-scale);
+}
+
+/*=============== BUTTONS ===============*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  padding: 1rem 2rem;
+  font-weight: var(--font-semi-bold);
+  transition: .3s;
+}
+
+.button:hover{
+  background: var(--first-color);
+}
+
+.button-flex{
+  display: flex;
+  align-items: center;
+  column-gap: .25rem;
+}
+
+.button-link{
+  background: none;
+  padding: 0;
+}
+
+.button-link:hover{
+  background: none;
 }
 
 /*=============== BREAKPOINTS ===============*/
