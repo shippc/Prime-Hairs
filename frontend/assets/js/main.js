@@ -53,5 +53,5 @@ var swiper = new Swiper(".services-container", {
     spaceBetween: 32,
     coverflowEffect: {
         rotate: 0,
-    },        
+    },
 });

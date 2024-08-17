@@ -547,44 +547,113 @@ input {
 }
 
 /*=============== SERVICES ===============*/
+
 .services-card {
   position: relative;
   width: 200px;
   overflow: var(--img-hidden);
 }
 
-.services-data{
+.services-data {
   position: absolute;
   bottom: 1.5rem;
   left: 1rem;
 }
 
 .services-title,
-.services-description{
-  color: var(--white-color);  
+.services-description {
+  color: var(--white-color);
 }
 
-.services-title{
+.services-title {
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-0-25);
 }
 
-.services-description{
+.services-description {
   display: block;
   font-size: var(--smaller-font-size);
 }
 
-.services-img{
+.services-img {
   transition: var(--img-transition);
 }
 
-.services-img:hover{
+.services-img:hover {
   transform: var(--img-scale);
 }
 
 .swiper-container-3d .swiper-slide-shadow-left,
-.swiper-container-3d .swiper-slide-shadow-right{
+.swiper-container-3d .swiper-slide-shadow-right {
   background-image: none;
+}
+
+.services-info-container {
+  row-gap: 2.5rem;
+}
+
+.services-info-data {
+  text-align: center;
+}
+
+.button-services-info {
+  text-align: center;
+  align-items: center;
+}
+
+/*=============== FEATURES ===============*/
+.features-container {
+  row-gap: 2.5rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.features-content {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  justify-items: center;
+  padding: 0 2rem;
+}
+
+.features-number {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-0-5);
+}
+
+.features-description {
+  font-size: var(--small-font-size);
+}
+
+.features-img {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.features-overlay:nth-child(1) {
+  width: 283px;
+  margin-right: 2rem;
+}
+
+.features-overlay:nth-child(2) {
+  width: 220px;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}
+
+.features-img-one,
+.features-img-two {
+  transition: var(--img-transition);
+}
+
+.features-img-one:hover,
+.features-img-two:hover {
+  transform: var(--img-scale);
+}
+
+.features-overlay {
+  overflow: var(--img-hidden);
 }
 
 /*=============== BREAKPOINTS ===============*/
