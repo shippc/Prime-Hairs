@@ -454,7 +454,7 @@ input {
   position: absolute;
   right: 0;
   bottom: 1rem;
-  width: 278px;  
+  width: 278px;
 }
 
 .home-info-title {
@@ -484,7 +484,7 @@ input {
 }
 
 /*=============== BUTTONS ===============*/
-.button{
+.button {
   display: inline-block;
   background-color: var(--first-color);
   padding: 1rem 2rem;
@@ -492,23 +492,58 @@ input {
   transition: .3s;
 }
 
-.button:hover{
+.button:hover {
   background: var(--first-color);
 }
 
-.button-flex{
+.button-flex {
   display: flex;
   align-items: center;
   column-gap: .25rem;
 }
 
-.button-link{
+.button-link {
   background: none;
   padding: 0;
 }
 
-.button-link:hover{
+.button-link:hover {
   background: none;
+}
+
+/*=============== ABOUT ===============*/
+.about-data {
+  text-align: center;
+}
+
+.about-container {
+  row-gap: 2.5rem;
+}
+
+.about-description {
+  margin-bottom: var(--mb-2);
+}
+
+.about-img {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-img-overlay {
+  overlay: var(--img-hidden);
+}
+
+.about-img-one,
+.about-img-two {
+  width: 200px;
+  transition: var(--img-transition);
+}
+
+.about-img-one:hover,
+.about-img-two:hover{
+  transform: var(--img-scale);
 }
 
 /*=============== BREAKPOINTS ===============*/
