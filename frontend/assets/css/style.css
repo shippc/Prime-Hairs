@@ -656,6 +656,85 @@ input {
   overflow: var(--img-hidden);
 }
 
+/*=============== HAIRS ===============*/
+.hair-card,
+.hair-img {
+  height: 350px;
+}
+
+.hair-container {
+  grid-template-columns: repeat(1, max-content);
+  justify-content: center;
+}
+
+.hair-card {
+  position: relative;
+  overflow: var(--img-hidden);
+}
+
+.hair-content,
+.hair-title {
+  color: var(--white-color);
+}
+
+.hair-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .75rem .75rem .1rem;
+}
+
+.hair-rating {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.hair-rating-icon {
+  font-size: .75rem;
+  margin-right: var(--mb-0-25);
+}
+
+.hair-rating-number {
+  font-size: var(--small-font-size);
+}
+
+.hair-subtitle,
+.hair-price {
+  display: block;
+  margin-bottom: var(--mb-0-5);
+}
+
+.hair-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-25);
+}
+
+.hair-subtitle {
+  font-size: var(--smaller-font-size);
+  margin-bottom: var(--mb-1-25);
+}
+
+.hair-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: .75rem 1rem;
+}
+
+.hair-img {
+  transition: var(--img-transition);
+}
+
+.hair-card:hover .hair-img {
+  transform: var(--img-scale);
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
 @media screen and (min-width: 576px) {
@@ -743,5 +822,37 @@ input {
 
   .search-form {
     max-width: 650px;
+  }
+
+  .hair-container {
+    grid-template-columns: repeat(3, max-content);
+  }
+
+  .hair-card,
+  .hair-img {
+    height: 350px;
+    width: 450px;
+  }
+
+  .features-overlay:nth-child(1) {
+    width: 480px;
+  }
+
+  .features-overlay:nth-child(2) {
+    width: 380px;
+  }
+
+  .services-card,
+  .services-img {
+    width: 350px;
+  }
+
+  .about-img-one,
+  .about-img-two {
+    width: 400px;
+  }
+
+  .about-img {
+    column-gap: 3rem;
   }
 }
