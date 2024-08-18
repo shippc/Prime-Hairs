@@ -10,6 +10,7 @@
   --first-color: hsl(230, 75%, 56%);
   --title-color: hsl(230, 75%, 15%);
   --text-color: hsl(230, 12%, 40%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
   --body-color: hsl(230, 100%, 98%);
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
@@ -446,6 +447,11 @@ input {
   color: var(--white-color);
 }
 
+.home-social-link:hover {
+  color: var(--first-color);
+  transition: .5s;
+}
+
 .home-info {
   background-color: var(--first-color);
   display: flex;
@@ -736,39 +742,206 @@ input {
   transform: var(--img-scale);
 }
 
+.hair-info-container {
+  row-gap: 2.5rem;
+}
+
+.hair-info-data {
+  text-align: center;
+}
+
+.button-hair-info {
+  text-align: center;
+  align-items: center;
+}
+
+/*=============== CONTACT ===============*/
+.contact-container{
+  row-gap: 4rem;
+}
+
+.contact-group,
+.contact-form{
+  gap: 1rem;
+}
+
+.contact-form{
+  position: relative;
+}
+
+.contact-input{
+  padding: 1.25rem;
+  background-color: var(--container-color);
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.contact-input::placeholder{
+  color: var(--text-color-light);  
+}
+
+.contact-area{
+  height: 10rem;
+  resize: none;
+}
+
+.contact-button{
+  margin-top: var(--mb-1);
+  cursor: pointer;
+}
+
+.contact-social{
+  margin-top: var(--mb-1-5);
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.contact-social-link{
+  color: var(--title-color);
+  display: inline-flex;
+  column-gap: .25rem;
+  align-items: center;
+  transition: .5s;
+}
+
+.contact-social-link i{
+  font-size: 1.5rem;
+}
+
+.contact-social-link span{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.contact-social-link:hover{
+  color: var(--first-color);
+}
+
+.contact-message{
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  display: none;
+}
+
+.contact-message-show{
+  display: block;
+}
+
 /*=============== SUBSCRIBE ===============*/
-.subscribe-bg{
+.subscribe-bg {
   background-color: var(--first-color);
   padding: 2.5rem;
 }
 
 .subscribe-title,
-.subscribe-description{
+.subscribe-description {
   color: var(--white-color);
 }
 
-.subscribe-description{
+.subscribe-description {
   text-align: center;
   margin-bottom: var(--mb-2-5);
 }
 
-.subscribe-form{
+.subscribe-form {
   background-color: var(--input-color);
   padding: .5rem;
   display: flex;
   justify-content: space-between;
 }
 
-.subscribe-input{
+.subscribe-input {
   width: 70%;
   padding-right: .5rem;
   background-color: var(--input-color);
   color: var(--text-color);
 }
 
-.subscribe-input::placeholder{
+.subscribe-input::placeholder {
   color: var(--text-color);
 }
+
+/*=============== FOOTER ===============*/
+.footer-container {
+  row-gap: 5rem;
+  text-align: center;
+}
+
+.footer-content {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  row-gap: 3.5rem;
+}
+
+.footer-title,
+.footer-subtitle {
+  font-size: var(--h3-font-size);
+}
+
+.footer-title {
+  margin-bottom: var(--mb-0-5);
+}
+
+.footer-description {
+  margin-bottom: var(--mb-0-75);
+}
+
+.footer-social-link {
+  font-size: 1.48rem;
+  color: var(--title-color);
+  margin-right: var(--mb-0-75);
+}
+
+.footer-social-link:hover {
+  color: var(--first-color);
+  transition: .5s;
+}
+
+.footer-subtitle {
+  margin-bottom: var(--mb-1);
+}
+
+.footer-item {
+  margin-bottom: var(--mb-0-75);
+}
+
+.footer-link {
+  color: var(--text-color);
+}
+
+.footer-link:hover {
+  color: var(--first-color);
+  transition: .5s;
+}
+
+.footer-rights {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  text-align: center;
+}
+
+.footer-copy,
+.footer-terms-link {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.footer-terms {
+  display: flex;
+  column-gap: 1.5rem;
+  justify-content: center;
+}
+
+.footer-terms-link:hover {
+  color: var(--first-color);
+  transition: .5s;
+}
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
@@ -860,7 +1033,7 @@ input {
   }
 
   .hair-container {
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
   }
 
   .hair-card,
@@ -879,7 +1052,8 @@ input {
 
   .services-card,
   .services-img {
-    width: 350px;
+    width: 425px;
+    height: auto;
   }
 
   .about-img-one,
@@ -889,5 +1063,15 @@ input {
 
   .about-img {
     column-gap: 3rem;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .footer-social-link {
+    font-size: 1.28rem;
+    margin-right: var(--mb-0-5);
   }
 }
