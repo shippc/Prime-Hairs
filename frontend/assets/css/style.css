@@ -7,6 +7,7 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
+  --hue-color: 190;
   --first-color: hsl(230, 75%, 56%);
   --title-color: hsl(230, 75%, 15%);
   --text-color: hsl(230, 12%, 40%);
@@ -756,48 +757,48 @@ input {
 }
 
 /*=============== CONTACT ===============*/
-.contact-container{
+.contact-container {
   row-gap: 4rem;
 }
 
 .contact-group,
-.contact-form{
+.contact-form {
   gap: 1rem;
 }
 
-.contact-form{
+.contact-form {
   position: relative;
 }
 
-.contact-input{
+.contact-input {
   padding: 1.25rem;
   background-color: var(--container-color);
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
 
-.contact-input::placeholder{
-  color: var(--text-color-light);  
+.contact-input::placeholder {
+  color: var(--text-color-light);
 }
 
-.contact-area{
+.contact-area {
   height: 10rem;
   resize: none;
 }
 
-.contact-button{
+.contact-button {
   margin-top: var(--mb-1);
   cursor: pointer;
 }
 
-.contact-social{
+.contact-social {
   margin-top: var(--mb-1-5);
   grid-template-columns: repeat(3, max-content);
   justify-content: center;
   column-gap: 2rem;
 }
 
-.contact-social-link{
+.contact-social-link {
   color: var(--title-color);
   display: inline-flex;
   column-gap: .25rem;
@@ -805,20 +806,20 @@ input {
   transition: .5s;
 }
 
-.contact-social-link i{
+.contact-social-link i {
   font-size: 1.5rem;
 }
 
-.contact-social-link span{
+.contact-social-link span {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
 }
 
-.contact-social-link:hover{
+.contact-social-link:hover {
   color: var(--first-color);
 }
 
-.contact-message{
+.contact-message {
   position: absolute;
   left: 0;
   bottom: -2rem;
@@ -828,7 +829,7 @@ input {
   display: none;
 }
 
-.contact-message-show{
+.contact-message-show {
   display: block;
 }
 
@@ -940,6 +941,32 @@ input {
 .footer-terms-link:hover {
   color: var(--first-color);
   transition: .5s;
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  background: var(--first-color);
+  padding: .5rem;
+  display: flex;
+  opacity: .9;
+  z-index: var(--z-tooltip);
+  transition: .4s;
+}
+
+.scrollup-icon {
+  color: var(--white-color);
+}
+
+.scrollup:hover {
+  background-color: var(--title-color);
+  opacity: 1;
+}
+
+.show-scroll {
+  bottom: 5rem;
 }
 
 

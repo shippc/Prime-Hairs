@@ -58,30 +58,37 @@ var swiper = new Swiper(".services-container", {
 
 /* Email JS */
 const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message')
+    contactMessage = document.getElementById('contact-message')
 
 const sendEmail = (e) => {
-   e.preventDefault()
-   
-   // serviceID - templateID - #form - publicKey
-   emailjs.sendForm('service_jovs1ae','template_ngtimpg','#contact-form','dGNXLaxyY9AODOLkj')
-      .then(() => {
-         // Show sent message
-         contactMessage.textContent = 'Message sent successfully '
+    e.preventDefault()
 
-         // Remove message after five seconds
-         setTimeout(() => {
-            contactMessage.textContent = ''
-         }, 5000)
+    // serviceID - templateID - #form - publicKey
+    emailjs.sendForm('service_jovs1ae', 'template_ngtimpg', '#contact-form', 'dGNXLaxyY9AODOLkj')
+        .then(() => {
+            // Show sent message
+            contactMessage.textContent = 'Message sent successfully '
 
-         // Clear input fields
-         contactForm.reset()
+            // Remove message after five seconds
+            setTimeout(() => {
+                contactMessage.textContent = ''
+            }, 5000)
 
-      }, () => {
-         // Show error message
-         contactMessage.textContent = 'Message not sent (service error) '
-      })
+            // Clear input fields
+            contactForm.reset()
+
+        }, () => {
+            // Show error message
+            contactMessage.textContent = 'Message not sent (service error) '
+        })
 }
 
 contactForm.addEventListener('submit', sendEmail)
 
+/* Show Scroll Up */
+function scrollUp() {
+    const scrollUp = document.getElementById('scroll-up');
+    // When the scroll is higher than 200 viewport height, add the show-scroll class to the a tag with the scroll-top class
+    if (this.scrollY >= 200) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
