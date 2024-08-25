@@ -214,6 +214,10 @@ input {
   align-items: center;
 }
 
+.container-logo {
+  width: 100%;
+}
+
 .nav-logo {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
@@ -279,12 +283,12 @@ input {
   top: 0;
 }
 
-.active-link{
+.active-link {
   position: relative;
   color: var(--title-color);
 }
 
-.active-link::before{
+.active-link::before {
   content: '';
   position: absolute;
   background-color: var(--title-color);
@@ -987,21 +991,82 @@ input {
 }
 
 /*=============== SCROLL BAR ===============*/
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: .60rem;
-  background-color: var(--scroll-bar-color); 
+  background-color: var(--scroll-bar-color);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: var(--scroll-thumb-color);
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
   background-color: var(--text-color-light);
-  transition: .7s;
+  transition: .6s;
 }
 
 /*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 345px) {
+  .hair-container {
+    grid-template-columns: max-content;
+    justify-content: center;
+  }
+
+  .hair-card {
+    width: 310px;
+    height: 300px;
+  }
+
+  .scrollup {
+    right: .95rem;
+    bottom: 1.5%;
+  }
+
+  .services-card {
+    width: 75%;
+    height: 100%;
+  }
+
+  .features-content {
+    padding: 0;
+  }
+
+  .features-overlay:nth-child(1) {
+    width: 200px;
+  }
+
+  .features-overlay:nth-child(2) {
+    width: 120px;
+  }
+
+  .contact-container,
+  .contact-social {
+    width: 300px;
+    align-items: center;
+  }
+
+  .contact-social {
+    column-gap: .68rem;
+  }
+
+  .contact-social-link {
+    text-align: center;
+    display: flex;
+    font-size: .28rem;
+  }
+
+  .home-info {
+    width: 225px;
+    padding: 1rem;
+  }
+
+  .features-img {
+    padding: 0;
+  }
+
+}
+
 /* For medium devices */
 @media screen and (min-width: 576px) {
 
@@ -1082,6 +1147,14 @@ input {
 }
 
 @media screen and (min-width: 1366px) {
+  .container-logo .nav-logo {
+    font-size: 1.45rem;
+  }
+
+  .container-menu .nav-menu .nav-list .nav-item .nav-link {
+    font-size: 1.19rem;
+  }
+
   .login-form {
     padding: 1rem 1.5rem 2rem;
   }
@@ -1132,4 +1205,5 @@ input {
     font-size: 1.28rem;
     margin-right: var(--mb-0-5);
   }
+
 }
