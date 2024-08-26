@@ -78,6 +78,17 @@
   }
 }
 
+/*=============== BUTTON DARK/LIGHT ===============*/
+body.dark-theme {
+  --first-color-second: hsl(230, 60%, 40%);
+  --title-color: hsl(230, 100%, 98%);
+  --text-color: hsl(230, 100%, 97%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: rgb(1, 6, 44); 
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+}
+
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
@@ -234,6 +245,13 @@ input {
 .nav-login,
 .nav-toggle,
 .nav-close {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: color .4s;
+}
+
+.nav-theme{
   font-size: 1.25rem;
   color: var(--title-color);
   cursor: pointer;
