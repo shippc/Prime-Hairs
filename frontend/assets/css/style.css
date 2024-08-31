@@ -25,6 +25,7 @@
   --body-font: "Syne", sans-serif;
   --title-font: 'Raleway', sans-serif;
   --biggest-font-size: 2.5rem;
+  --big-font-size: 1.5rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
@@ -1050,11 +1051,12 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 200px;
+    width: 275px;
+    height: 300px;
   }
 
   .features-overlay:nth-child(2) {
-    width: 120px;
+    width: 130px;
   }
 
   .contact-container,
@@ -1120,6 +1122,15 @@ input {
   .hair-card {
     width: 265px;
     height: 315px;
+  }
+
+  .features-overlay:nth-child(1) {
+    width: 500px;
+    height: auto;
+  }
+
+  .features-overlay:nth-child(2) {
+    width: 180px;
   }
 
   .subscribe-form {
@@ -1196,12 +1207,12 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 363px;
+    width: 600px;
     margin-right: 4rem;
   }
 
   .features-overlay:nth-child(2) {
-    width: 260px;
+    width: 230px;
   }
 
   .subscribe-bg {
@@ -1304,7 +1315,7 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 463px;
+    width: 800px;
     margin-right: 7rem;
   }
 
@@ -1352,15 +1363,25 @@ input {
   .container {
     max-width: 1024px;
   }
-}
 
-@media screen and (min-width: 1366px) {
   .container-logo .nav-logo {
     font-size: 1.45rem;
   }
 
-  .container-menu .nav-menu .nav-list .nav-item .nav-link {
-    font-size: 1.19rem;
+  .nav-link {
+    font-size: 1.15rem;
+  }
+
+  .nav-list,
+  .nav-link {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-theme,
+  .nav-login {
+    font-size: 1.58rem;
   }
 
   .login-form {
@@ -1371,37 +1392,56 @@ input {
     max-width: 650px;
   }
 
+  .home-data {
+    padding-top: 10rem;
+  }
+
+  .container-icons {
+    padding-left: 2rem;
+  }
+
+  .home-info {
+    width: 300px;
+  }
+
+  .home-data-title {
+    font-size: 3rem;
+  }
+
+  .about-img-one {
+    width: 220px;
+  }
+
+  .about-img-two {
+    width: 260px;
+    height: 400px;
+  }
+
+  .services-card,
+  .services-img {
+    width: auto;
+    height: 325px;
+  }
+
   .hair-container {
+    gap: .50rem .50rem;
     grid-template-columns: repeat(4, max-content);
   }
 
   .hair-card,
   .hair-img {
-    height: 350px;
-    width: 450px;
+    height: 275px;
+    width: auto;
   }
 
   .features-overlay:nth-child(1) {
-    width: 480px;
+    height: auto;
+    width: 685px;
   }
 
   .features-overlay:nth-child(2) {
-    width: 380px;
-  }
-
-  .services-card,
-  .services-img {
-    width: 425px;
-    height: auto;
-  }
-
-  .about-img-one,
-  .about-img-two {
-    width: 400px;
-  }
-
-  .about-img {
-    column-gap: 3rem;
+    width: 260px;
+    height: 400px;
   }
 
   .footer-content {
