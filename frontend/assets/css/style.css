@@ -1023,6 +1023,11 @@ input {
   transition: .6s;
 }
 
+/*=============== SIGN IN UP FORM ===============*/
+.sign-in-up{
+  
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 345px) {

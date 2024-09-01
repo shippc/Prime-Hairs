@@ -167,3 +167,30 @@ sr.reveal('.about-img-overlay, .subscribe-form', {
     interval: 100,
 })
 
+/*===== LOGIN SHOW AND HIDDEN ====*/
+
+function initializeLoginToggle() {
+    const signUp = document.getElementById('sign-up');
+    const signIn = document.getElementById('sign-in');
+    const loginIn = document.getElementById('login-in');
+    const loginUp = document.getElementById('login-up');
+
+    if (!signUp || !signIn || !loginIn || !loginUp) {
+        console.error('Some elements are missing, check the element IDs.');
+        return;
+    }
+
+    // Helper function to toggle classes
+    function toggleLogin(showLoginIn) {
+        loginIn.classList.toggle('block', showLoginIn);
+        loginIn.classList.toggle('none', !showLoginIn);
+        loginUp.classList.toggle('block', !showLoginIn);
+        loginUp.classList.toggle('none', showLoginIn);
+    }
+
+    // Event listeners
+    signUp.addEventListener('click', () => toggleLogin(false));
+    signIn.addEventListener('click', () => toggleLogin(true));
+}
+
+// To run the code, call the function initializeLoginToggle() when needed
