@@ -169,28 +169,28 @@ sr.reveal('.about-img-overlay, .subscribe-form', {
 
 /*===== LOGIN SHOW AND HIDDEN ====*/
 
-function initializeLoginToggle() {
-    const signUp = document.getElementById('sign-up');
-    const signIn = document.getElementById('sign-in');
-    const loginIn = document.getElementById('login-in');
-    const loginUp = document.getElementById('login-up');
+const signUp = document.getElementById('sign-up'),
+    signIn = document.getElementById('sign-in'),
+    loginIn = document.getElementById('login-in'),
+    loginUp = document.getElementById('login-up')
 
-    if (!signUp || !signIn || !loginIn || !loginUp) {
-        console.error('Some elements are missing, check the element IDs.');
-        return;
-    }
 
-    // Helper function to toggle classes
-    function toggleLogin(showLoginIn) {
-        loginIn.classList.toggle('block', showLoginIn);
-        loginIn.classList.toggle('none', !showLoginIn);
-        loginUp.classList.toggle('block', !showLoginIn);
-        loginUp.classList.toggle('none', showLoginIn);
-    }
+signUp.addEventListener('click', () => {
+    // Remove classes first if they exist
+    loginIn.classList.remove('block')
+    loginUp.classList.remove('none')
 
-    // Event listeners
-    signUp.addEventListener('click', () => toggleLogin(false));
-    signIn.addEventListener('click', () => toggleLogin(true));
-}
+    // Add classes
+    loginIn.classList.toggle('none')
+    loginUp.classList.toggle('block')
+})
 
-// To run the code, call the function initializeLoginToggle() when needed
+signIn.addEventListener('click', () => {
+    // Remove classes first if they exist
+    loginIn.classList.remove('none')
+    loginUp.classList.remove('block')
+
+    // Add classes
+    loginIn.classList.toggle('block')
+    loginUp.classList.toggle('none')
+})
