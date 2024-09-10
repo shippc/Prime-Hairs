@@ -57,35 +57,33 @@ var swiper = new Swiper(".services-container", {
 });
 
 /* Email JS */
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form'),
-        contactMessage = document.getElementById('contact-message')
+const contactForm = document.getElementById('contact-form'),
+    contactMessage = document.getElementById('contact-message')
 
-    const sendEmail = (e) => {
-        e.preventDefault()
+const sendEmail = (e) => {
+    e.preventDefault()
 
-        // serviceID - templateID - #form - publicKey
-        emailjs.sendForm('service_jovs1ae', 'template_ngtimpg', '#contact-form', 'dGNXLaxyY9AODOLkj')
-            .then(() => {
-                // Show sent message
-                contactMessage.textContent = 'Message sent successfully '
+    // serviceID - templateID - #form - publicKey
+    emailjs.sendForm('service_jovs1ae', 'template_ngtimpg', '#contact-form', 'dGNXLaxyY9AODOLkj')
+        .then(() => {
+            // Show sent message
+            contactMessage.textContent = 'Message sent successfully '
 
-                // Remove message after five seconds
-                setTimeout(() => {
-                    contactMessage.textContent = ''
-                }, 5000)
+            // Remove message after five seconds
+            setTimeout(() => {
+                contactMessage.textContent = ''
+            }, 5000)
 
-                // Clear input fields
-                contactForm.reset()
+            // Clear input fields
+            contactForm.reset()
 
-            }, () => {
-                // Show error message
-                contactMessage.textContent = 'Message not sent (service error) '
-            })
-    }
+        }, () => {
+            // Show error message
+            contactMessage.textContent = 'Message not sent (service error) '
+        })
+}
 
-    contactForm.addEventListener('submit', sendEmail)
-})
+contactForm.addEventListener('submit', sendEmail)
 
 /* Show Scroll Up */
 function scrollUp() {
@@ -143,54 +141,4 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
-})
-
-/*==================== SCROLL REVEAL ANIMATION ====================*/
-const sr = ScrollReveal({
-    distance: '60px',
-    duration: 2800,
-    //reset: true,
-})
-
-sr.reveal('.home-data, .home-social-link, .home-info, .services-container, .hair-container, .features-container, .features-overlay, .contact-container, .footer-data, .footer-rights', {
-    origin: 'top',
-    interval: 100,
-})
-
-sr.reveal('.about-data, .subscribe-description', {
-    origin: 'left',
-
-})
-
-sr.reveal('.about-img-overlay, .subscribe-form', {
-    origin: 'right',
-    interval: 100,
-})
-
-/*===== LOGIN SHOW AND HIDDEN ====*/
-
-const signUp = document.getElementById('sign-up'),
-    signIn = document.getElementById('sign-in'),
-    loginIn = document.getElementById('login-in'),
-    loginUp = document.getElementById('login-up')
-
-
-signUp.addEventListener('click', () => {
-    // Remove classes first if they exist
-    loginIn.classList.remove('block')
-    loginUp.classList.remove('none')
-
-    // Add classes
-    loginIn.classList.toggle('none')
-    loginUp.classList.toggle('block')
-})
-
-signIn.addEventListener('click', () => {
-    // Remove classes first if they exist
-    loginIn.classList.remove('none')
-    loginUp.classList.remove('block')
-
-    // Add classes
-    loginIn.classList.toggle('block')
-    loginUp.classList.toggle('none')
 })

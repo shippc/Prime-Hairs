@@ -9,8 +9,6 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --hue-color: 190;
   --first-color: hsl(230, 75%, 56%);
-  --first-color-lighter: hsl(230, 75%, 70%);
-  --input-color-sign-in-up: hsl(0, 0%, 96%);
   --title-color: hsl(230, 75%, 15%);
   --text-color: hsl(230, 12%, 40%);
   --text-color-light: hsl(var(--hue-color), 8%, 60%);
@@ -27,7 +25,6 @@
   --body-font: "Syne", sans-serif;
   --title-font: 'Raleway', sans-serif;
   --biggest-font-size: 2.5rem;
-  --big-font-size: 1.5rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
@@ -1025,148 +1022,6 @@ input {
   transition: .6s;
 }
 
-/*=============== SIGN IN UP FORM ===============*/
-.sign-in-up {
-  display: grid;
-  grid-template-columns: 100%;
-  height: 100vh;
-  padding-top: 14rem;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.sign-in-up-content {
-  display: grid;
-}
-
-.sign-in-up-img {
-  justify-self: center;
-}
-
-.sign-in-up-img img {
-  width: 310px;
-  margin-top: 1.5rem;
-  padding-top: 3.75rem;
-}
-
-.sign-in-up-forms {
-  position: relative;
-  height: 368px;
-}
-
-.sign-in,
-.sign-up {
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  background-color: var(--white-color);
-  padding: 2rem 1rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
-  animation-duration: .4s;
-  animation-name: animate-login;
-}
-
-@keyframes animate-login {
-  0% {
-    transform: scale(1, 1);
-  }
-
-  50% {
-    transform: scale(1.1, 1.1);
-  }
-
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-.title-sign-up {
-  font-size: var(--h1-font-size);
-  margin-bottom: 2rem;
-}
-
-.sign-in-up-box {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: .5rem;
-  padding: 1.125rem 1rem;
-  background-color: var(--input-color-sign-in-up);
-  margin-top: 1rem;
-  border-radius: .5rem;
-}
-
-.sign-in-icon {
-  font-size: 1.5rem;
-  color: var(--first-color-lighter);
-}
-
-.sign-in-up-input {
-  border: none;
-  outline: none;
-  font-size: var(--normal-font-size);
-  font-weight: 700;
-  color: var(--first-color-lighter);
-  background-color: var(--input-color-sign-in-up);
-}
-
-.sign-in-up-input::placeholder {
-  font-size: var(--normal-font-size);
-  font-family: var(--body-font);
-  color: var(--first-color-lighter);
-}
-
-.sign-in-forgot {
-  display: block;
-  width: max-content;
-  margin-left: auto;
-  margin-top: .5rem;
-  font-size: var(--small-font-size);
-  font-weight: 600;
-  color: var(--first-color-lighter);
-}
-
-.sign-in-button {
-  display: block;
-  padding: 1rem;
-  margin: 2rem 0;
-  background-color: var(--first-color);
-  color: var(--white-color);
-  font-weight: 600;
-  text-align: center;
-  border-radius: .5rem;
-  transition: .4s;
-}
-
-.sign-in-button:hover {
-  background-color: var(--first-color-second);
-}
-
-.sign-in-account,
-.sign-up-now,
-.sign-in-now {
-  font-weight: 600;
-  font-size: var(--small-font-size);
-}
-
-.sign-in-now,
-.sign-up-now {
-  color: var(--first-color-lighter);
-  cursor: pointer;
-}
-
-/*=== Show Sign In ===*/
-.block {
-  display: block;
-}
-
-/*=== Hidden Sign In ===*/
-.none {
-  display: none;
-}
-
-
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 345px) {
@@ -1195,12 +1050,11 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 275px;
-    height: 300px;
+    width: 200px;
   }
 
   .features-overlay:nth-child(2) {
-    width: 130px;
+    width: 120px;
   }
 
   .contact-container,
@@ -1258,11 +1112,6 @@ input {
     margin-inline: auto;
   }
 
-  .sign-in-up-forms {
-    width: 348px;
-    justify-self: center;
-  }
-
   .hair-container {
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
@@ -1271,15 +1120,6 @@ input {
   .hair-card {
     width: 265px;
     height: 315px;
-  }
-
-  .features-overlay:nth-child(1) {
-    width: 500px;
-    height: auto;
-  }
-
-  .features-overlay:nth-child(2) {
-    width: 180px;
   }
 
   .subscribe-form {
@@ -1356,12 +1196,12 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 600px;
+    width: 363px;
     margin-right: 4rem;
   }
 
   .features-overlay:nth-child(2) {
-    width: 230px;
+    width: 260px;
   }
 
   .subscribe-bg {
@@ -1390,7 +1230,7 @@ input {
 }
 
 /* For large devices */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1023px) {
   .container {
     margin-left: auto;
     margin-right: auto;
@@ -1417,40 +1257,6 @@ input {
 
   .login-form {
     padding: 3rem 2rem 3.5rem;
-  }
-
-  .sign-in-up {
-    height: 100vh;
-    overflow: hidden;
-    margin: 1rem 0;
-    padding-top: 1.75rem;
-  }
-
-  .sign-in-up-content {
-    grid-template-columns: repeat(1, max-content);
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .sign-up {
-    height: 75vh;
-  }
-
-  .title-sign-in,
-  .title-sign-up {
-    font-size: var(--h2-font-size);
-    margin-bottom: 0.25rem;
-  }
-
-  .sign-in-up-forms {
-    width: 350px;
-    height: 250px;
-    margin-top: 15rem;
-  }
-
-  .sign-in-up-input {
-    font-size: var(--small-font-size);
   }
 
   .home-info {
@@ -1498,7 +1304,7 @@ input {
   }
 
   .features-overlay:nth-child(1) {
-    width: 800px;
+    width: 463px;
     margin-right: 7rem;
   }
 
@@ -1546,25 +1352,15 @@ input {
   .container {
     max-width: 1024px;
   }
+}
 
+@media screen and (min-width: 1366px) {
   .container-logo .nav-logo {
     font-size: 1.45rem;
   }
 
-  .nav-link {
-    font-size: 1.15rem;
-  }
-
-  .nav-list,
-  .nav-link {
-    align-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .nav-theme,
-  .nav-login {
-    font-size: 1.58rem;
+  .container-menu .nav-menu .nav-list .nav-item .nav-link {
+    font-size: 1.19rem;
   }
 
   .login-form {
@@ -1575,72 +1371,37 @@ input {
     max-width: 650px;
   }
 
-  .sign-in-up {
-    height: 100vh;
-    margin: 1rem 0;
-    padding-top: 5rem;
-  }
-
-  .sign-up {
-    height: 75vh;
-  }
-
-  .sign-in-up-forms {
-    width: 400px;
-    height: 375px;
-    margin-top: 2rem;
-  }
-
-  .home-data {
-    padding-top: 10rem;
-  }
-
-  .container-icons {
-    padding-left: 2rem;
-  }
-
-  .home-info {
-    width: 300px;
-  }
-
-  .home-data-title {
-    font-size: 3rem;
-  }
-
-  .about-img-one {
-    width: 220px;
-  }
-
-  .about-img-two {
-    width: 260px;
-    height: 400px;
-  }
-
-  .services-card,
-  .services-img {
-    width: auto;
-    height: 325px;
-  }
-
   .hair-container {
-    gap: .50rem .50rem;
     grid-template-columns: repeat(4, max-content);
   }
 
   .hair-card,
   .hair-img {
-    height: 275px;
-    width: auto;
+    height: 350px;
+    width: 450px;
   }
 
   .features-overlay:nth-child(1) {
-    height: auto;
-    width: 685px;
+    width: 480px;
   }
 
   .features-overlay:nth-child(2) {
-    width: 260px;
-    height: 400px;
+    width: 380px;
+  }
+
+  .services-card,
+  .services-img {
+    width: 425px;
+    height: auto;
+  }
+
+  .about-img-one,
+  .about-img-two {
+    width: 400px;
+  }
+
+  .about-img {
+    column-gap: 3rem;
   }
 
   .footer-content {
