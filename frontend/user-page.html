@@ -14,186 +14,57 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <div class="container-logo">
-                <a href="" class="nav-logo">Prime Hairs</a>
-            </div>
-            <div class="container-menu">
-                <div class="nav-menu" id="nav-menu">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#services" class="nav-link">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#hairs" class="nav-link">Hairs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#features" class="nav-link">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- Close button -->
-                    <div class="nav-close" id="nav-close">
-                        <i class="ri-close-line"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="container-icons">
-                <div class="nav-actions">
-                    <!-- Search button -->
-                    <!-- <i class="ri-search-line nav-search" id="search-btn"></i> -->
-                    <div class="nav-dark">
-                        <i class="ri-moon-line nav-theme change-theme" id="theme-button"></i>
-                    </div>
-                    <!-- Login button -->
-                    <i class="ri-user-line nav-login" id="login-btn"></i>
-                    <!-- Toggle button -->
-                    <div class="nav-toggle" id="nav-toggle">
-                        <i class="ri-menu-line"></i>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <header class="header-user" id="header-user">
+        <div class="header-user-toggle">
+            <i class="ri-menu-line" id="header-user-toggle"></i>
+        </div>
+        <div class="header-user-img">
+            <img src="assets/img/user-img.jpg" alt="this image was not found">
+        </div>
     </header>
-    <!-- SEARCH -->
-    <!-- <div class="search" id="search">
-        <form action="" class="search-form">
-            <i class="ri-search-line search-icon"></i>
-            <input type="search" placeholder="What are you looking for?" class="search-input">
-        </form>
-        <i class="ri-close-line search-close" id="search-close"></i>
-    </div> -->
-    <!-- LOGIN -->
-    <div class="login" id="login">
-        <form action="" class="login-form">
-            <h2 class="login-tittle">Log In</h2>
-            <div class="login-group">
-                <div>
-                    <label for="email" class="login-label">Email</label>
-                    <input type="email" placeholder="Write your email" class="login-input" id="email">
-                </div>
-                <div>
-                    <label for="password" class="login-label">Password</label>
-                    <input type="password" placeholder="Enter your password" class="login-input" id="password">
-                </div>
-            </div>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav-user">
             <div>
-                <p class="login-signup">You do not have an account? <a href="">Sign up</a></p>
-                <a href="" class="login-forgot">You forgot your password</a>
-                <br><br>
-                <button type="submit" class="login-button">Log In</button>
+                <a href="#" class="nav-user-logo">
+                    <i class="ri-user-fill"></i>
+                    <span class="nav-user-logo-name">Prime Hairs</span>
+                </a>
+                <div class="nav-user-list">
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">Users</span>
+                    </a>
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">Hairs</span>
+                    </a>
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">Settings</span>
+                    </a>
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">Something</span>
+                    </a>
+                    <a href="#" class="nav-user-link">
+                        <i class="ri-dashboard-line"></i>
+                        <span class="nav-user-name">I don't know</span>
+                    </a>
+                </div>
             </div>
-        </form>
-        <i class="ri-close-line login-close" id="login-close"></i>
+            <a href="#" class="nav-user-link">
+                <i class="ri-logout-box-line"></i>
+                <span class="nav-user-name">Logout</span>
+            </a>
+        </nav>
     </div>
-    <!-- SUBSCRIBE -->
-    <section class="subscribe section">
-        <div class="subscribe-bg">
-            <div class="subscribe-container">
-                <h2 class="section-title subscribe-title">Subscribe Our <br> Newsletter</h2>
-                <p class="subscribe-description">Subscribe to our newsletter and get a special 30% descont</p>
-                <form action="" class="subscribe-form">
-                    <input type="text" placeholder="Enter your email" class="subscribe-input">
-                    <button class="button">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- FOOTER -->
-    <footer class="footer section" id="footer">
-        <div class="footer-container container grid">
-            <div class="footer-content grid">
-                <div class="footer-data">
-                    <h3 class="footer-title">Prime Hairs</h3>
-                    <p class="footer-description">The bests styles <br> of alls the <br> places.
-                    </p>
-                    <div>
-                        <a href="https://www.facebook.com" target="_blank" class="footer-social-link">
-                            <i class="ri-facebook-box-fill"></i>
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" class="footer-social-link">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="https://youtube.com" target="_blank" class="footer-social-link">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-data">
-                    <h3 class="footer-subtitle">About</h3>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">About Us</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Explore our portfolio</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">New & Blog </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-data">
-                    <h3 class="footer-subtitle">Services</h3>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Services</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Plan y Pricing</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Become a member</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-data">
-                    <h3 class="footer-subtitle">Features</h3>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Features</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Cashback</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Cut Scheduling</a>
-                    </ul>
-                </div>
-                <div class="footer-data">
-                    <h3 class="footer-subtitle">Contact</h3>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">FAQ</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Support Center</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-rights">
-                <p class="footer-copy">&#169; shippc. All rights reserved.</p>
-                <div class="footer-terms">
-                    <a href="" class="footer-terms-link">Terms & Agreements</a>
-                    <a href="" class="footer-terms-link">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+
     <!-- SCROLL UP -->
     <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line scrollup-icon"></i></a>
     <!-- EMAIL JS -->
