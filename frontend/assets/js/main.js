@@ -101,8 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
 /*==================== SCROLL UP ====================*/
 const scrollUpButton = document.getElementById('scroll-up');
 const scrollThreshold = 200; // Ponto de rolagem para mostrar o botão
@@ -121,7 +119,6 @@ window.addEventListener('scroll', handleScrollUp);
 
 // Executa a função uma vez para definir o estado inicial do botão
 handleScrollUp();
-
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]');
@@ -217,5 +214,3 @@ document.addEventListener('DOMContentLoaded', () => {
         signIn.addEventListener('click', () => toggleLoginView(false));
     }
 });
-
-
