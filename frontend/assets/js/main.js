@@ -71,30 +71,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /*==================== EMAIL JS ====================*/
-const contactForm = document.getElementById('contact-form');
-const contactMessage = document.getElementById('contact-message');
-const serviceID = 'service_jovs1ae';
-const templateID = 'template_ngtimpg';
-const userID = 'dGNXLaxyY9AODOLkj';
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const contactMessage = document.getElementById('contact-message');
 
-const sendEmail = async (e) => {
-    e.preventDefault();
+    // Verifica se os elementos existem antes de adicionar o ouvinte de evento
+    if (contactForm && contactMessage) {
+        const serviceID = 'service_jovs1ae';
+        const templateID = 'template_ngtimpg';
+        const userID = 'dGNXLaxyY9AODOLkj';
 
-    contactMessage.textContent = 'Sending...'; // Feedback while sending
+        const sendEmail = async (e) => {
+            e.preventDefault();
+            contactMessage.textContent = 'Sending...'; // Feedback enquanto envia
 
-    try {
-        await emailjs.sendForm(serviceID, templateID, contactForm, userID);
-        contactMessage.textContent = 'Message sent successfully';
-    } catch (error) {
-        console.error('EmailJS error:', error);
-        contactMessage.textContent = 'Message not sent (service error)';
-    } finally {
-        setTimeout(() => contactMessage.textContent = '', 5000);
-        contactForm.reset();
+            try {
+                await emailjs.sendForm(serviceID, templateID, contactForm, userID);
+                contactMessage.textContent = 'Message sent successfully';
+            } catch (error) {
+                console.error('EmailJS error:', error);
+                contactMessage.textContent = 'Message not sent (service error)';
+            } finally {
+                setTimeout(() => contactMessage.textContent = '', 5000);
+                contactForm.reset();
+            }
+        };
+
+        contactForm.addEventListener('submit', sendEmail);
     }
-};
+});
 
-contactForm.addEventListener('submit', sendEmail);
+
 
 /*==================== SCROLL UP ====================*/
 const scrollUpButton = document.getElementById('scroll-up');
@@ -144,30 +151,71 @@ window.addEventListener('scroll', handleScrollActive);
 // Executa a função uma vez para definir o estado inicial dos links
 handleScrollActive();
 
-
 /*==================== DARK LIGHT THEME ====================*/
-const themeButton = document.getElementById('theme-button');
-const darkTheme = 'dark-theme';
-const iconTheme = 'ri-sun-line';
-
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
-
-const applyStoredTheme = () => {
-    const selectedTheme = localStorage.getItem('selected-theme');
-    const selectedIcon = localStorage.getItem('selected-icon');
-
-    if (selectedTheme) {
-        document.body.classList.toggle(darkTheme, selectedTheme === 'dark');
-        themeButton.classList.toggle(iconTheme, selectedIcon === 'ri-moon-line');
-    }
-};
-
-applyStoredTheme();
-
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
-    localStorage.setItem('selected-theme', getCurrentTheme());
-    localStorage.setItem('selected-icon', getCurrentIcon());
+document.addEventListener('DOMContentLoaded', () => {
+    const themeButton = document.getElementById('theme-button');
+    const darkThemeClass = 'dark-theme';
+    const iconThemeClass = 'ri-sun-line';
+    
+    // Funções para obter o tema e ícone atuais
+    const getCurrentTheme = () => document.body.classList.contains(darkThemeClass) ? 'dark' : 'light';
+    const getCurrentIcon = () => themeButton.classList.contains(iconThemeClass) ? 'ri-moon-line' : 'ri-sun-line';
+    
+    // Função para aplicar o tema e ícone com base nas preferências armazenadas
+    const applyStoredPreferences = () => {
+        const storedTheme = localStorage.getItem('selected-theme');
+        const storedIcon = localStorage.getItem('selected-icon');
+    
+        if (storedTheme) {
+            document.body.classList.toggle(darkThemeClass, storedTheme === 'dark');
+            themeButton.classList.toggle(iconThemeClass, storedIcon === 'ri-moon-line');
+        }
+    };
+    
+    // Função para alternar o tema ao clicar no botão
+    const toggleTheme = () => {
+        document.body.classList.toggle(darkThemeClass);
+        themeButton.classList.toggle(iconThemeClass);
+        
+        // Armazenar as preferências do usuário
+        localStorage.setItem('selected-theme', getCurrentTheme());
+        localStorage.setItem('selected-icon', getCurrentIcon());
+    };
+    
+    // Aplicar preferências armazenadas ao carregar a página
+    applyStoredPreferences();
+    
+    // Adicionar o ouvinte de evento ao botão
+    themeButton.addEventListener('click', toggleTheme);
 });
+
+
+/*===== LOGIN SHOW AND HIDDEN ====*/
+document.addEventListener('DOMContentLoaded', () => {
+    const signUp = document.getElementById('sign-up');
+    const signIn = document.getElementById('sign-in');
+    const loginIn = document.getElementById('login-in');
+    const loginUp = document.getElementById('login-up');
+
+    if (signUp && signIn && loginIn && loginUp) {
+        const toggleLoginView = (showSignUp) => {
+            // Remove and add classes based on the showSignUp flag
+            if (showSignUp) {
+                loginIn.classList.add('none');
+                loginIn.classList.remove('block');
+                loginUp.classList.add('block');
+                loginUp.classList.remove('none');
+            } else {
+                loginIn.classList.add('block');
+                loginIn.classList.remove('none');
+                loginUp.classList.add('none');
+                loginUp.classList.remove('block');
+            }
+        };
+
+        signUp.addEventListener('click', () => toggleLoginView(true));
+        signIn.addEventListener('click', () => toggleLoginView(false));
+    }
+});
+
+
