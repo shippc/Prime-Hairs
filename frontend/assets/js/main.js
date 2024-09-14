@@ -153,35 +153,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeButton = document.getElementById('theme-button');
     const darkThemeClass = 'dark-theme';
     const iconThemeClass = 'ri-sun-line';
-    
+
     // Funções para obter o tema e ícone atuais
     const getCurrentTheme = () => document.body.classList.contains(darkThemeClass) ? 'dark' : 'light';
     const getCurrentIcon = () => themeButton.classList.contains(iconThemeClass) ? 'ri-moon-line' : 'ri-sun-line';
-    
+
     // Função para aplicar o tema e ícone com base nas preferências armazenadas
     const applyStoredPreferences = () => {
         const storedTheme = localStorage.getItem('selected-theme');
         const storedIcon = localStorage.getItem('selected-icon');
-    
+
         if (storedTheme) {
             document.body.classList.toggle(darkThemeClass, storedTheme === 'dark');
             themeButton.classList.toggle(iconThemeClass, storedIcon === 'ri-moon-line');
         }
     };
-    
+
     // Função para alternar o tema ao clicar no botão
     const toggleTheme = () => {
         document.body.classList.toggle(darkThemeClass);
         themeButton.classList.toggle(iconThemeClass);
-        
+
         // Armazenar as preferências do usuário
         localStorage.setItem('selected-theme', getCurrentTheme());
         localStorage.setItem('selected-icon', getCurrentIcon());
     };
-    
+
     // Aplicar preferências armazenadas ao carregar a página
     applyStoredPreferences();
-    
+
     // Adicionar o ouvinte de evento ao botão
     themeButton.addEventListener('click', toggleTheme);
 });
