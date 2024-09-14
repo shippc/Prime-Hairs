@@ -11,7 +11,7 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>{
             // show navbar
             nav.classList.toggle('show')
             // change icon
-            toggle.classList.toggle('ri-menu-line')
+            toggle.classList.toggle('bx-x')
             // add padding to body
             bodypd.classList.toggle('body-user')
             // add padding to header
