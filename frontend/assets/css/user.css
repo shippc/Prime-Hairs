@@ -104,6 +104,10 @@ a {
     padding: .5rem 0 .5rem 1.5rem;
 }
 
+.nav-list-user{
+    padding-top: 2.5rem;
+}
+
 .nav-logo-user {
     margin-bottom: 2rem;
 }
@@ -155,6 +159,16 @@ a {
     width: 2px;
     height: 32px;
     background-color: var(--white-color);
+}
+
+/* ===== CONTENT ===== */
+.content {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content.show {
+    opacity: 1; /* Quando visível, a opacidade será total */
 }
 
 /* ===== MEDIA QUERIES=====*/
