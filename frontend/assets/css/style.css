@@ -11,7 +11,7 @@
   --hue-color: 190;
   --first-color: hsl(230, 75%, 56%);
   --first-color-lighter: hsl(230, 75%, 70%);
-  --input-color-sign-in-up: hsl(0, 0%, 96%);
+  --input-color-sign-in-up: hsl(0, 0%, 92%);
   --title-color: hsl(230, 75%, 15%);
   --text-color: hsl(230, 12%, 40%);
   --text-color-light: hsl(var(--hue-color), 8%, 60%);
@@ -1028,7 +1028,7 @@ input {
 .sign-in-up {
   display: grid;
   grid-template-columns: 100%;
-  height: 100vh;
+  height: 70vh;
   padding-top: 14rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1058,7 +1058,6 @@ input {
   position: absolute;
   bottom: 1rem;
   width: 100%;
-  background-color: var(--white-color);
   padding: 2rem 1rem;
   border-radius: 1rem;
   text-align: center;
@@ -1575,19 +1574,23 @@ input {
   }
 
   .sign-in-up {
-    height: 100vh;
+    height: 75vh;
     margin: 1rem 0;
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
 
   .sign-up {
-    height: 75vh;
+    height: 50vh;
   }
 
   .sign-in-up-forms {
     width: 400px;
     height: 375px;
     margin-top: 2rem;
+  }
+
+  .sign-in-up-form-page {
+    height: 30vh;
   }
 
   .home-data {
@@ -1651,5 +1654,22 @@ input {
     font-size: 1.28rem;
     margin-right: var(--mb-0-5);
   }
+}
 
+@media screen and (min-width: 1300px) {
+  .sign-in-up {
+    height: 100vh;
+  }
+
+  .sign-in-up-content {
+    height: 95vh;
+  }
+
+  .sign-up {
+    height: 70vh;
+  }
+
+  .sign-in-up-forms {
+    height: 75vh;
+  }
 }
