@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REMIXICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <!-- SWIPER CSS -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Prime Hairs</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="container-logo">
+                <a href="" class="nav-logo">Prime Hairs</a>
+            </div>
+            <div class="container-menu">
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#hairs" class="nav-link">Hairs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#features" class="nav-link">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- Close button -->
+                    <div class="nav-close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="container-icons">
+                <div class="nav-actions">
+                    <!-- Search button -->
+                    <!-- <i class="ri-search-line nav-search" id="search-btn"></i> -->
+                    <div class="nav-dark">
+                        <i class="ri-moon-line nav-theme change-theme" id="theme-button"></i>
+                    </div>
+                    <!-- Login button -->
+                    <i class="ri-user-line nav-login" id="login-btn"></i>
+                    <!-- Toggle button -->
+                    <div class="nav-toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- SEARCH -->
+    <!-- <div class="search" id="search">
+        <form action="" class="search-form">
+            <i class="ri-search-line search-icon"></i>
+            <input type="search" placeholder="What are you looking for?" class="search-input">
+        </form>
+        <i class="ri-close-line search-close" id="search-close"></i>
+    </div> -->
+    <!-- LOGIN -->
+    <div class="login" id="login">
+        <form action="" class="login-form">
+            <h2 class="login-tittle">Log In</h2>
+            <div class="login-group">
+                <div>
+                    <label for="email" class="login-label">Email</label>
+                    <input type="email" placeholder="Write your email" class="login-input" id="email">
+                </div>
+                <div>
+                    <label for="password" class="login-label">Password</label>
+                    <input type="password" placeholder="Enter your password" class="login-input" id="password">
+                </div>
+            </div>
+            <div>
+                <p class="login-signup">You do not have an account? <a href="">Sign up</a></p>
+                <a href="" class="login-forgot">You forgot your password</a>
+                <br><br>
+                <button type="submit" class="login-button">Log In</button>
+            </div>
+        </form>
+        <i class="ri-close-line login-close" id="login-close"></i>
+    </div>
+    <!-- MAIN -->
+    <main class="main">
+        <div class="form-container">
+            <form class="form" action="#" method="post">
+                <h1 class="form-title">Registration Form</h1>
+                <!-- Campos Nome, CPF, Celular, Data de Nascimento e Gênero -->
+                <div class="form-group grid-form">
+                    <!-- Campo Nome -->
+                    <div class="grid-item">
+                        <label for="nome">Nome:</label>
+                        <input class="form-input" type="text" id="nome" name="nome" required>
+                    </div>
+                    <!-- Campo CPF -->
+                    <div class="grid-item">
+                        <label for="cpf">CPF:</label>
+                        <input class="form-input" type="text" id="cpf" name="cpf" required
+                            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                    </div>
+                    <!-- Campo Celular -->
+                    <div class="grid-item">
+                        <label for="celular">Celular:</label>
+                        <input class="form-input" type="tel" id="celular" name="celular" required
+                            pattern="\(\d{2}\) \d{5}-\d{4}">
+                    </div>
+                    <!-- Campo Data de Nascimento -->
+                    <div class="grid-item">
+                        <label for="data_nascimento">Data de Nascimento:</label>
+                        <input class="form-input" type="date" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                    <!-- Campo Gênero -->
+                    <div class="grid-item">
+                        <label for="genero">Gênero:</label>
+                        <select class="form-input" id="genero" name="genero" required>
+                            <option value="">Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Endereço -->
+                <div class="form-group grid-form">
+                    <!-- Campo Tipo de Endereço -->
+                    <div class="grid-item">
+                        <label for="tipo_endereco">Tipo de Endereço:</label>
+                        <select class="form-input" id="tipo_endereco" name="tipo_endereco" required>
+                            <option value="">Selecione</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="entrega">Entrega</option>
+                        </select>
+                    </div>
+                    <!-- Campo CEP -->
+                    <div class="grid-item">
+                        <label for="cep">CEP:</label>
+                        <input class="form-input" type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}">
+                    </div>
+                    <!-- Campo Rua -->
+                    <div class="grid-item">
+                        <label for="rua">Rua:</label>
+                        <input class="form-input" type="text" id="rua" name="rua" required>
+                    </div>
+                    <!-- Campo Bairro -->
+                    <div class="grid-item">
+                        <label for="bairro">Bairro:</label>
+                        <input class="form-input" type="text" id="bairro" name="bairro" required>
+                    </div>
+                    <!-- Campo Cidade -->
+                    <div class="grid-item">
+                        <label for="cidade">Cidade:</label>
+                        <input class="form-input" type="text" id="cidade" name="cidade" required>
+                    </div>
+                    <!-- Campo Estado -->
+                    <div class="grid-item">
+                        <label for="estado">Estado:</label>
+                        <select class="form-input" id="estado" name="estado" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    <!-- Campo Número da Casa -->
+                    <div class="grid-item">
+                        <label for="numero">Número:</label>
+                        <input class="form-input" type="text" id="numero" name="numero" required>
+                    </div>
+                    <!-- Campo Complemento -->
+                    <div class="grid-item">
+                        <label for="complemento">Complemento:</label>
+                        <input class="form-input" type="text" id="complemento" name="complemento">
+                    </div>
+                    <!-- Campo Ponto de Referência -->
+                    <div class="grid-item">
+                        <label for="referencia">Ponto de Referência:</label>
+                        <input class="form-input" type="text" id="referencia" name="referencia">
+                    </div>
+                </div>
+
+                <!-- Botões de Envio e Reset -->
+                <div class="form-group buttons">
+                    <input class="form-submit" type="submit" value="Enviar">
+                    <input class="form-reset" type="reset" value="Limpar">
+                </div>
+            </form>
+        </div>
+        <!-- SUBSCRIBE -->
+        <section class="subscribe section">
+            <div class="subscribe-bg">
+                <div class="subscribe-container">
+                    <h2 class="section-title subscribe-title">Subscribe Our <br> Newsletter</h2>
+                    <p class="subscribe-description">Subscribe to our newsletter and get a special 30% descont</p>
+                    <form action="" class="subscribe-form">
+                        <input type="text" placeholder="Enter your email" class="subscribe-input">
+                        <button class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER -->
+        <footer class="footer section" id="footer">
+            <div class="footer-container container grid">
+                <div class="footer-content grid">
+                    <div class="footer-data">
+                        <h3 class="footer-title">Prime Hairs</h3>
+                        <p class="footer-description">The bests styles <br> of alls the <br> places.
+                        </p>
+                        <div>
+                            <a href="https://www.facebook.com" target="_blank" class="footer-social-link">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" class="footer-social-link">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://youtube.com" target="_blank" class="footer-social-link">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-data">
+                        <h3 class="footer-subtitle">About</h3>
+                        <ul>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">About Us</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Explore our portfolio</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">New & Blog </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-data">
+                        <h3 class="footer-subtitle">Services</h3>
+                        <ul>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Services</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Plan y Pricing</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Become a member</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-data">
+                        <h3 class="footer-subtitle">Features</h3>
+                        <ul>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Features</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Cashback</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Cut Scheduling</a>
+                        </ul>
+                    </div>
+                    <div class="footer-data">
+                        <h3 class="footer-subtitle">Contact</h3>
+                        <ul>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">FAQ</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Support Center</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-link">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-rights">
+                    <p class="footer-copy">&#169; shippc. All rights reserved.</p>
+                    <div class="footer-terms">
+                        <a href="" class="footer-terms-link">Terms & Agreements</a>
+                        <a href="" class="footer-terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <!-- SCROLL UP -->
+    <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line scrollup-icon"></i></a>
+    <!-- EMAIL JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- SWIPER JS -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
