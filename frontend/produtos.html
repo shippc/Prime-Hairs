@@ -65,14 +65,124 @@
         </nav>
     </div>
 
-    <h1>Components</h1>
-    
+    <!-- Formulário de Cadastro de Produtos -->
+    <div class="form-container">
+        <form class="form" action="#" method="post" enctype="multipart/form-data">
+            <h1 class="form-title">Products Registration</h1>
+            <!-- Campos do produto -->
+            <div class="form-group grid-form">
+                <!-- Código (auto-increment) -->
+                <div class="grid-item">
+                    <label for="codigo">Código:</label>
+                    <input class="form-input" type="text" id="codigo" name="codigo" disabled>
+                </div>
+                <!-- Descrição -->
+                <div class="grid-item">
+                    <label for="descricao">Descrição:</label>
+                    <input class="form-input" type="text" id="descricao" name="descricao" required>
+                </div>
+                <!-- Marca -->
+                <div class="grid-item">
+                    <label for="marca">Marca:</label>
+                    <input class="form-input" type="text" id="marca" name="marca" required>
+                </div>
+                <!-- Linha -->
+                <div class="grid-item">
+                    <label for="linha">Linha:</label>
+                    <input class="form-input" type="text" id="linha" name="linha" required>
+                </div>
+                <!-- Imagem -->
+                <div class="grid-item">
+                    <label for="imagem">Imagem:</label>
+                    <input class="form-input" type="file" id="imagem" name="imagem" required>
+                </div>
+                <!-- Código de Barras -->
+                <div class="grid-item">
+                    <label for="codigo_barras">Código de Barras:</label>
+                    <input class="form-input" type="text" id="codigo_barras" name="codigo_barras" required>
+                </div>
+                <!-- Ficha Técnica -->
+                <div class="grid-item">
+                    <label for="ficha_tecnica">Ficha Técnica:</label>
+                    <input class="form-input" type="text" id="ficha_tecnica" name="ficha_tecnica" required>
+                </div>
+                <!-- Preço -->
+                <div class="grid-item">
+                    <label for="preco">Preço:</label>
+                    <input class="form-input" type="number" id="preco" name="preco" required>
+                </div>
+                <!-- Saldo Estoque -->
+                <div class="grid-item">
+                    <label for="saldo_estoque">Saldo Estoque:</label>
+                    <input class="form-input" type="number" id="saldo_estoque" name="saldo_estoque" required>
+                </div>
+                <!-- Estoque Mínimo -->
+                <div class="grid-item">
+                    <label for="estoque_minimo">Estoque Mínimo:</label>
+                    <input class="form-input" type="number" id="estoque_minimo" name="estoque_minimo" required>
+                </div>
+                <!-- Estoque Máximo -->
+                <div class="grid-item">
+                    <label for="estoque_maximo">Estoque Máximo:</label>
+                    <input class="form-input" type="number" id="estoque_maximo" name="estoque_maximo" required>
+                </div>
+                <!-- ICMS -->
+                <div class="grid-item">
+                    <label for="icms">ICMS:</label>
+                    <input class="form-input" type="number" id="icms" name="icms" required>
+                </div>
+                <!-- CST -->
+                <div class="grid-item">
+                    <label for="cst">CST:</label>
+                    <input class="form-input" type="text" id="cst" name="cst" required>
+                </div>
+                <!-- CSOSN -->
+                <div class="grid-item">
+                    <label for="csosn">CSOSN:</label>
+                    <input class="form-input" type="text" id="csosn" name="csosn" required>
+                </div>
+                <!-- NCM -->
+                <div class="grid-item">
+                    <label for="ncm">NCM:</label>
+                    <input class="form-input" type="text" id="ncm" name="ncm" required>
+                </div>
+                <!-- Data de Validade -->
+                <div class="grid-item">
+                    <label for="data_validade">Data de Validade:</label>
+                    <input class="form-input" type="date" id="data_validade" name="data_validade" required>
+                </div>
+                <!-- Data da Última Compra -->
+                <div class="grid-item">
+                    <label for="data_ultima_compra">Data da Última Compra:</label>
+                    <input class="form-input" type="date" id="data_ultima_compra" name="data_ultima_compra" required>
+                </div>
+                <!-- Preço de Custo -->
+                <div class="grid-item">
+                    <label for="preco_custo">Preço de Custo:</label>
+                    <input class="form-input" type="number" id="preco_custo" name="preco_custo" required>
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="form-group buttons">
+                <input class="form-submit" type="submit" value="Incluir">
+                <input class="form-submit" type="button" value="Alterar">
+                <input class="form-submit" type="button" value="Gravar">
+                <input class="form-submit" type="button" value="Excluir">
+                <input class="form-submit" type="button" value="Pesquisar">
+                <input class="form-submit" type="button" value="Listar">
+            </div>
+        </form>
+    </div>
+
     <!-- PRE LOADER -->
     <div id="preloader" class="preloader">
         <div class="loader"></div>
     </div>
+
     <!-- MAIN JS -->
     <script src="assets/js/user.js"></script>
 </body>
+
 
 </html>

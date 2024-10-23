@@ -10,6 +10,10 @@
     --first-color: hsl(230, 75%, 56%);
     --first-color-lighter: hsl(230, 75%, 70%);
     --white-color: #F7F6FB;
+    --background-color: #F4F4F4; /* Cinza claro */    
+    --text-color: #333333; /* Preto suave */
+    --border-color: #DDDDDD; /* Bordas suaves */
+    
 
     /*===== Font and typography =====*/
     --body-font: "Syne", sans-serif;
@@ -17,6 +21,10 @@
 
     /*===== z index =====*/
     --z-fixed: 100;
+
+    /*===== Forms and Stuff =====*/    
+    --border-radius: 8px; /* Arredondamento de bordas */
+    
 }
 
 /*===== BASE =====*/
@@ -28,11 +36,15 @@
 
 body {
     position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
     margin: var(--header-height) 0 0 0;
-    padding: 0 1rem;
+    padding: 2rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    transition: .5s;
+    transition: .5s;    
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que ocupe toda a altura da viewport */   
 }
 
 a {
@@ -205,7 +217,104 @@ a {
     display: none;
 }
 
-/* ===== MEDIA QUERIES=====*/
+/*===== FORM CONTAINER =====*/
+.form-container {
+    max-width: 1650px; /* Largura máxima do container */
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%; /* Faz com que o container utilize a largura máxima disponível */
+    box-sizing: border-box; /* Garante que o padding não adicione à largura total */
+}
+
+/*===== FORM STYLES =====*/
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--first-color);
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-input {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-input:focus {
+    border-color: var(--first-color);
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    outline: none;
+}
+
+/*===== BUTTON STYLES =====*/
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.form-submit {
+    background-color: var(--first-color);
+    color: var(--white-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    flex: 1; /* Distribui o espaço entre os botões */
+    margin: 0 0.5rem; /* Espaçamento entre os botões */
+}
+
+.form-submit:hover {
+    background-color: var(--first-color-lighter);
+    transform: translateY(-2px);
+}
+
+.form-submit:active {
+    transform: translateY(1px);
+}
+
+/*===== MEDIA QUERIES =====*/
+
+@media (max-width: 600px) {
+    .grid-form {
+        grid-template-columns: 1fr; /* Em telas pequenas, cada campo ocupa toda a largura */
+    }
+}
+
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
