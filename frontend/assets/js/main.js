@@ -214,3 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
         signIn.addEventListener('click', () => toggleLoginView(false));
     }
 });
+
+// JavaScript para remover o preloader após a página carregar
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    preloader.style.display = 'none';
+
+    // Exibir o conteúdo principal após o preloader ser removido
+    const content = document.querySelector('.content');
+    content.style.display = 'block';
+});
