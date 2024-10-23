@@ -101,7 +101,7 @@
         <div class="form-container">
             <form class="form" action="#" method="post">
                 <h1 class="form-title">Registration Form</h1>
-                <!-- Campos Nome, CPF, Celular, Data de Nascimento e Gênero -->
+                <!-- Campos Nome, CPF, RG, Email, Telefone, Tipo de Pessoa, Nome Social, Sexo e Tipo -->
                 <div class="form-group grid-form">
                     <!-- Campo Nome -->
                     <div class="grid-item">
@@ -111,27 +111,56 @@
                     <!-- Campo CPF -->
                     <div class="grid-item">
                         <label for="cpf">CPF:</label>
-                        <input class="form-input" type="text" id="cpf" name="cpf" required
-                            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                        <input class="form-input" type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                     </div>
-                    <!-- Campo Celular -->
+                    <!-- Campo RG -->
                     <div class="grid-item">
-                        <label for="celular">Celular:</label>
-                        <input class="form-input" type="tel" id="celular" name="celular" required
-                            pattern="\(\d{2}\) \d{5}-\d{4}">
+                        <label for="rg">RG:</label>
+                        <input class="form-input" type="text" id="rg" name="rg">
                     </div>
-                    <!-- Campo Data de Nascimento -->
+                    <!-- Campo Email -->
                     <div class="grid-item">
-                        <label for="data_nascimento">Data de Nascimento:</label>
-                        <input class="form-input" type="date" id="data_nascimento" name="data_nascimento" required>
+                        <label for="email">Email:</label>
+                        <input class="form-input" type="email" id="email" name="email" required>
                     </div>
-                    <!-- Campo Gênero -->
+                    <!-- Campo Telefone -->
                     <div class="grid-item">
-                        <label for="genero">Gênero:</label>
-                        <select class="form-input" id="genero" name="genero" required>
+                        <label for="telefone">Telefone:</label>
+                        <input class="form-input" type="tel" id="telefone" name="telefone" required pattern="\(\d{2}\) \d{5}-\d{4}">
+                    </div>
+                    <!-- Campo Tipo de Pessoa -->
+                    <div class="grid-item">
+                        <label for="tipo_pessoa">Tipo de Pessoa:</label>
+                        <select class="form-input" id="tipo_pessoa" name="tipo_pessoa" required>
                             <option value="">Selecione</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="feminino">Feminino</option>
+                            <option value="Física">Física</option>
+                            <option value="Jurídica">Jurídica</option>
+                        </select>
+                    </div>
+                    <!-- Campo Nome Social -->
+                    <div class="grid-item">
+                        <label for="nome_social">Nome Social:</label>
+                        <input class="form-input" type="text" id="nome_social" name="nome_social">
+                    </div>
+                    <!-- Campo Sexo -->
+                    <div class="grid-item">
+                        <label for="sexo">Sexo:</label>
+                        <select class="form-input" id="sexo" name="sexo" required>
+                            <option value="">Selecione</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                            <option value="Outros">Outros</option>
+                            <option value="Não Informado">Não Informado</option>
+                        </select>
+                    </div>
+                    <!-- Campo Tipo (Cliente, Funcionário, Fornecedor) -->
+                    <div class="grid-item">
+                        <label for="tipo">Tipo:</label>
+                        <select class="form-input" id="tipo" name="tipo" required>
+                            <option value="">Selecione</option>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Funcionario">Funcionário</option>
+                            <option value="Fornecedor">Fornecedor</option>
                         </select>
                     </div>
                 </div>
@@ -217,7 +246,6 @@
                         <input class="form-input" type="text" id="referencia" name="referencia">
                     </div>
                 </div>
-
                 <!-- Botões de Envio e Reset -->
                 <div class="form-group buttons">
                     <input class="form-submit" type="submit" value="Enviar">
@@ -225,6 +253,7 @@
                 </div>
             </form>
         </div>
+        
         <!-- SUBSCRIBE -->
         <section class="subscribe section">
             <div class="subscribe-bg">
