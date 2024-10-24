@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/user.css">
+    <title>Prime Hairs</title>
+</head>
+
+<body id="body-user">
+    <header class="header-user" id="header-user">
+        <div class="header-toggle-user">
+            <i class="bx bx-menu" id="header-toggle-user"></i>
+        </div>
+        <div class="header-img-user">
+            <img src="assets/img/user-img-perfil.jpg" alt="this image was not found">
+        </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav-user">
+            <div>
+                <a href="#" class="nav-logo-user">
+                    <i class="bx bx-layer nav-logo-icon-user"></i>
+                    <span class="nav-logo-name-user">Prime Hairs</span>
+                </a>
+                <div class="nav-list-user">
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-dollar nav-icon-user"></i>
+                        <span class="nav-name-user">Cashback</span>
+                    </a>
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-cog nav-icon-user"></i>
+                        <span class="nav-name-user">Configurações</span>
+                    </a>
+                    <a href="#" class="nav-link-user active">
+                        <i class="bx bx-face nav-icon-user"></i>
+                        <span class="nav-name-user">Estilos</span>
+                    </a>
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-star nav-icon-user"></i>
+                        <span class="nav-name-user">Feedbacks</span>
+                    </a>
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-history nav-icon-user"></i>
+                        <span class="nav-name-user">Histórico</span>
+                    </a>
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-package nav-icon-user"></i>
+                        <span class="nav-name-user">Produtos</span>
+                    </a>
+                    <a href="#" class="nav-link-user">
+                        <i class="bx bx-cut nav-icon-user"></i>
+                        <span class="nav-name-user">Serviços</span>
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="nav-link-user">
+                <i class="bx bx-log-out nav-icon-user"></i>
+                <span class="nav-name-user">Deslogar</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="form-container">
+        <form class="form" action="#" method="post" enctype="multipart/form-data">
+            <h1 class="form-title">Styles Registration</h1>
+            <!-- Campos dos estilos -->
+            <div class="form-group grid-form-cuts">
+                <!-- Nome do Estilo -->
+                <div class="grid-item">
+                    <label for="nome_estilo">Nome do Estilo:</label>
+                    <input class="form-input" type="text" id="nome_estilo" name="nome_estilo" required>
+                </div>
+                <!-- Imagem do Estilo -->
+                <div class="grid-item">
+                    <label for="imagem">Imagem:</label>
+                    <input class="form-input" type="file" id="imagem" name="imagem" required>
+                </div>
+                <!-- Média de Tempo Gasto -->
+                <div class="grid-item">
+                    <label for="media_tempo_gasto">Média de Tempo Gasto:</label>
+                    <input class="form-input" type="text" id="media_tempo_gasto" name="media_tempo_gasto" required>
+                </div>
+                <!-- Valor Sugerido -->
+                <div class="grid-item">
+                    <label for="valor_sugerido">Valor Sugerido:</label>
+                    <input class="form-input" type="number" id="valor_sugerido" name="valor_sugerido" required>
+                </div>
+            </div>
+            <!-- Botões -->
+            <div class="form-group buttons">
+                <input class="form-submit" type="submit" value="Enviar Estilo">
+                <input class="form-submit" type="submit" value="Listar Estilos">
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <!-- PRE LOADER -->
+    <div id="preloader" class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- MAIN JS -->
+    <script src="assets/js/user.js"></script>
+</body>
+
+
+</html>
