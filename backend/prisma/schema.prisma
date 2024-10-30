@@ -1,0 +1,254 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  profile   Profile? @relation(fields: [profileId], references: [id])
+  profileId String?
+}
+
+model Profile {
+  id       String   @id @default(cuid())
+  bio      String?
+  user     User    @relation(fields: [userId], references: [id])
+  userId   String
+}
+
+model LogAccess {
+  id           Int      @id @default(autoincrement())
+  userId       String
+  accessDate   DateTime @default(now())
+  accessTime   Time
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model Entity {
+  id          Int      @id @default(autoincrement())
+  name        String
+  cpf         String?
+  rg          String?
+  email       String?
+  type        String
+  socialName  String?
+  sex         String?
+  phone       String?
+  userId      String?
+  typePerson  String
+  address     Address?
+  creator     User?
+  updater     User?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+}
+
+model Address {
+  id           Int      @id @default(autoincrement())
+  entity       Entity   @relation(fields: [entityId], references: [id])
+  entityId     Int
+  type         String
+  street       String
+  cep          String
+  district     String
+  city        String
+  state       Char(2)
+  number       String
+  principal    Boolean
+  complement  String?
+  creator     User?
+  updater     User?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+}
+
+model Employee {
+  id          Int      @id @default(autoincrement())
+  entityId    Int
+  cargo       String?
+  salary      Decimal(10, 2)?
+  workload    Int?
+  userId      String
+  creator     User?
+  updater     User?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+}
+
+model Product {
+  id           Int      @id @default(autoincrement())
+  description  String
+  image        String?
+  barcode      String?
+  brand        String?
+  line         String?
+  technicalFile Text?
+  price        Decimal(10, 2)
+  stockBalance Int
+  minimumStock Int
+  maximumStock Int
+  ipi          Decimal(5, 2)
+  pis          Decimal(5, 2)
+  cofins       Decimal(5, 2)
+  icms         Decimal(5, 2)
+  iss          Decimal(5, 2)
+  purchaseValue Decimal(10, 2)
+  lastPurchaseDate DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
+  creator      User?
+  updater      User?
+}
+
+model Service {
+  id           Int      @id @default(autoincrement())
+  description  String
+  duration     Interval?
+  price        Decimal(10, 2)
+  image        String?
+  creator      User?
+  updater      User?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
+}
+
+model Appointment {
+  id             Int      @id @default(autoincrement())
+  entityId       Entity   @relation(fields: [entityId], references: [id])
+  employeeId     Employee @relation(fields: [employeeId], references: [id])
+  appointment    Int
+  creator        User?
+  updater        User?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime?
+}
+
+model FunctionalSchedule {
+  id              Int      @id @default(autoincrement())
+  employeeId      Employee @relation(fields: [employeeId], references: [id])
+  date            Date
+  time            Time
+  available      Boolean
+  creator         User?
+  updater         User?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime?
+}
+
+model LoyaltyProgram {
+  id               Int      @id @default(autoincrement())
+  entityId         Entity   @relation(fields: [entityId], references: [id])
+  firstVisitDate    DateTime?
+  lastVisitDate    DateTime?
+  visitCount       Int
+  averageRating    Decimal(5, 2)?
+  totalPoints      Int
+  loyaltyLevel     String?
+  discount        Decimal(5, 2)?
+  creator          User?
+  updater          User?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime?
+}
+
+model ProductLoyalty {
+  id                 Int      @id @default(autoincrement())
+  entityId           Entity   @relation(fields: [entityId], references: [id])
+  productId          Product  @relation(fields: [productId], references: [id])
+  quantitySold        Int
+  saleValue          Decimal(10, 2)
+  rating             Decimal(5, 2)?
+  points             Int
+  creator            User?
+  updater            User?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime?
+}
+
+model ServiceLoyalty {
+  id                 Int      @id @default(autoincrement())
+  entityId           Entity   @relation(fields: [entityId], references: [id])
+  serviceId          Service  @relation(fields: [serviceId], references: [id])
+  quantitySold        Int
+  saleValue          Decimal(10, 2)
+  rating             Decimal(5, 2)?
+  points             Int
+  creator            User?
+  updater            User?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime?
+}
+
+model Stock {
+  id           Int      @id @default(autoincrement())
+  productId    Product  @relation(fields: [productId], references: [id])
+  balance      Int
+  lastPurchaseDate DateTime?
+  expirationDate Date?
+}
+
+model Sale {
+  id           Int      @id @default(autoincrement())
+  entityId     Entity   @relation(fields: [entityId], references: [id])
+  sellerId     Employee @relation(fields: [sellerId], references: [id])
+  discount     Decimal(10, 4)?
+  creator      User?
+  updater      User?
+}
+
+model LogStock {
+  id                 Int      @id @default(autoincrement())
+  productId           Product @relation(fields: [productId], references: [id])
+  movementType        Char(1)
+  saleId             Sale?   @relation(fields: [saleId], references: [id])
+  purchaseId         Purchase? @relation(fields: [purchaseId], references: [id])
+  previousBalance     Int
+  differenceBalance  Int
+  newBalance         Int
+  creator            User?
+  createdAt          DateTime @default(now())
+}
+
+model Purchase {
+  id           Int      @id @default(autoincrement())
+  supplierId   Entity   @relation(fields: [supplierId], references: [id])
+  buyerId      Employee @relation(fields: [buyerId], references: [id])
+  discount     Decimal(10, 4)?
+  creator      User?
+  updater      User?
+}
+
+model ItemSale {
+  id                 Int      @id @default(autoincrement())
+  saleId             Sale    @relation(fields: [saleId], references: [id])
+  type               String
+  productId          Product? @relation(fields: [productId], references: [id])
+  serviceId          Service? @relation(fields: [serviceId], references: [id])
+  discountItem       Decimal(10, 4)?
+  quantity           Decimal(10, 4)
+  unitPrice          Decimal(10, 2)
+  value              Decimal(10, 2)
+  creator            User?
+  updater            User?
+}
+
+model ItemPurchase {
+  id                 Int      @id @default(autoincrement())
+  purchaseId         Purchase @relation(fields: [purchaseId], references: [id])
+  type               String
+  productId          Product? @relation(fields: [productId], references: [id])
+  serviceId          Service? @relation(fields: [serviceId], references: [id])
+  discountItem       Decimal(10, 4)?
+  quantity           Decimal(10, 4)
+  unitPrice          Decimal(10, 2)
+  value              Decimal(10, 2)
+  validDate          Date?
+  creator            User?
+  updater            User?
+}
