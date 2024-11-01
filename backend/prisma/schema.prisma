@@ -4,251 +4,246 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
 }
 
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
-  profile   Profile? @relation(fields: [profileId], references: [id])
+  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String?
+  entities  Entity[] @relation("CreatorUpdater")
 }
 
 model Profile {
   id       String   @id @default(cuid())
   bio      String?
-  user     User    @relation(fields: [userId], references: [id])
-  userId   String
+  user     User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String?
 }
 
 model LogAccess {
   id           Int      @id @default(autoincrement())
   userId       String
   accessDate   DateTime @default(now())
-  accessTime   Time
-  user         User     @relation(fields: [userId], references: [id])
+  accessTime   DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Entity {
-  id          Int      @id @default(autoincrement())
-  name        String
-  cpf         String?
-  rg          String?
-  email       String?
-  type        String
-  socialName  String?
-  sex         String?
-  phone       String?
-  userId      String?
-  typePerson  String
-  address     Address?
-  creator     User?
-  updater     User?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime?
+  id           Int      @id @default(autoincrement())
+  name         String
+  cpf          String?
+  rg           String?
+  email        String?
+  type         String
+  socialName   String?
+  sex          String?
+  phone        String?
+  typePerson   String
+  address      Address?
+  creatorId    String?
+  creator      User?    @relation("CreatorUpdater", fields: [creatorId], references: [id], onDelete: SetNull)
+  updaterId    String?
+  updater      User?    @relation("CreatorUpdater", fields: [updaterId], references: [id], onDelete: SetNull)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
 }
 
 model Address {
   id           Int      @id @default(autoincrement())
-  entity       Entity   @relation(fields: [entityId], references: [id])
+  entity       Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
   entityId     Int
   type         String
   street       String
   cep          String
   district     String
-  city        String
-  state       Char(2)
+  city         String
+  state        String
   number       String
   principal    Boolean
-  complement  String?
-  creator     User?
-  updater     User?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime?
+  complement   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
 }
 
 model Employee {
-  id          Int      @id @default(autoincrement())
-  entityId    Int
-  cargo       String?
-  salary      Decimal(10, 2)?
-  workload    Int?
-  userId      String
-  creator     User?
-  updater     User?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime?
+  id           Int      @id @default(autoincrement())
+  entityId     Int
+  entity       Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  position     String?
+  salary       Decimal?
+  workload     Int?
+  userId       String
+  creatorId    String?
+  creator      User?    @relation("CreatorUpdater", fields: [creatorId], references: [id], onDelete: SetNull)
+  updaterId    String?
+  updater      User?    @relation("CreatorUpdater", fields: [updaterId], references: [id], onDelete: SetNull)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
 }
 
 model Product {
-  id           Int      @id @default(autoincrement())
-  description  String
-  image        String?
-  barcode      String?
-  brand        String?
-  line         String?
-  technicalFile Text?
-  price        Decimal(10, 2)
-  stockBalance Int
-  minimumStock Int
-  maximumStock Int
-  ipi          Decimal(5, 2)
-  pis          Decimal(5, 2)
-  cofins       Decimal(5, 2)
-  icms         Decimal(5, 2)
-  iss          Decimal(5, 2)
-  purchaseValue Decimal(10, 2)
-  lastPurchaseDate DateTime?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime?
-  creator      User?
-  updater      User?
-}
-
-model Service {
-  id           Int      @id @default(autoincrement())
-  description  String
-  duration     Interval?
-  price        Decimal(10, 2)
-  image        String?
-  creator      User?
-  updater      User?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime?
-}
-
-model Appointment {
   id             Int      @id @default(autoincrement())
-  entityId       Entity   @relation(fields: [entityId], references: [id])
-  employeeId     Employee @relation(fields: [employeeId], references: [id])
-  appointment    Int
-  creator        User?
-  updater        User?
+  description    String
+  image          String?
+  barcode        String?
+  brand          String?
+  line           String?
+  technicalFile  String?  
+  price          Decimal? 
+  stockBalance   Int
+  minimumStock   Int
+  maximumStock   Int
+  ipi            Decimal? 
+  pis            Decimal? 
+  cofins         Decimal? 
+  icms           Decimal? 
+  iss            Decimal? 
+  purchaseValue  Decimal? 
+  lastPurchaseDate DateTime?
   createdAt      DateTime @default(now())
   updatedAt      DateTime?
+  creatorId      String?
+  creator        User?    @relation("CreatorUpdater", fields: [creatorId], references: [id], onDelete: SetNull)
+  updaterId      String?
+  updater        User?    @relation("CreatorUpdater", fields: [updaterId], references: [id], onDelete: SetNull)
+}
+
+
+model Service {
+  id           Int       @id @default(autoincrement())
+  description  String
+  duration     Int?
+  price        Decimal?  // Remover a especificação de precisão e escala
+  image        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? // Manter como opcional se for o caso
+}
+
+
+model Appointment {
+  id           Int      @id @default(autoincrement())
+  entityId     Int
+  employeeId   Int
+  entity       Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  employee     Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  appointment  Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
 }
 
 model FunctionalSchedule {
-  id              Int      @id @default(autoincrement())
-  employeeId      Employee @relation(fields: [employeeId], references: [id])
-  date            Date
-  time            Time
-  available      Boolean
-  creator         User?
-  updater         User?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime?
+  id           Int      @id @default(autoincrement())
+  employeeId   Int
+  employee     Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  date         DateTime
+  available    Boolean
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
 }
 
 model LoyaltyProgram {
   id               Int      @id @default(autoincrement())
-  entityId         Entity   @relation(fields: [entityId], references: [id])
-  firstVisitDate    DateTime?
+  entityId         Int
+  entity           Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  firstVisitDate   DateTime?
   lastVisitDate    DateTime?
   visitCount       Int
-  averageRating    Decimal(5, 2)?
+  averageRating    Decimal? // Remover (5, 2)?
   totalPoints      Int
   loyaltyLevel     String?
-  discount        Decimal(5, 2)?
-  creator          User?
-  updater          User?
+  discount         Decimal?  // Remover (5, 2)?
   createdAt        DateTime @default(now())
   updatedAt        DateTime?
 }
 
+
 model ProductLoyalty {
-  id                 Int      @id @default(autoincrement())
-  entityId           Entity   @relation(fields: [entityId], references: [id])
-  productId          Product  @relation(fields: [productId], references: [id])
-  quantitySold        Int
-  saleValue          Decimal(10, 2)
-  rating             Decimal(5, 2)?
-  points             Int
-  creator            User?
-  updater            User?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime?
+  id               Int      @id @default(autoincrement())
+  entityId         Int
+  productId        Int
+  entity           Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  product          Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantitySold     Int
+  saleValue        Decimal?  // Removido (10, 2)
+  rating           Decimal?  // Removido (5, 2)
+  points           Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime?
 }
+
 
 model ServiceLoyalty {
-  id                 Int      @id @default(autoincrement())
-  entityId           Entity   @relation(fields: [entityId], references: [id])
-  serviceId          Service  @relation(fields: [serviceId], references: [id])
-  quantitySold        Int
-  saleValue          Decimal(10, 2)
-  rating             Decimal(5, 2)?
-  points             Int
-  creator            User?
-  updater            User?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime?
+  id               Int      @id @default(autoincrement())
+  entityId         Int
+  serviceId        Int
+  entity           Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  service          Service   @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  quantitySold     Int
+  saleValue        Decimal?  // Remover (10, 2)
+  rating           Decimal?  // Remover (5, 2)?
+  points           Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime?
 }
 
+
 model Stock {
-  id           Int      @id @default(autoincrement())
-  productId    Product  @relation(fields: [productId], references: [id])
-  balance      Int
+  id              Int      @id @default(autoincrement())
+  productId       Int
+  product         Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  balance         Int
   lastPurchaseDate DateTime?
-  expirationDate Date?
+  expirationDate  DateTime?
 }
 
 model Sale {
   id           Int      @id @default(autoincrement())
-  entityId     Entity   @relation(fields: [entityId], references: [id])
-  sellerId     Employee @relation(fields: [sellerId], references: [id])
-  discount     Decimal(10, 4)?
-  creator      User?
-  updater      User?
+  entityId     Int
+  sellerId     Int
+  entity       Entity   @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  seller       Employee @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  discount     Decimal? // Removido (10, 4)
+  createdAt    DateTime @default(now())
 }
 
+
 model LogStock {
-  id                 Int      @id @default(autoincrement())
-  productId           Product @relation(fields: [productId], references: [id])
-  movementType        Char(1)
-  saleId             Sale?   @relation(fields: [saleId], references: [id])
-  purchaseId         Purchase? @relation(fields: [purchaseId], references: [id])
-  previousBalance     Int
-  differenceBalance  Int
-  newBalance         Int
-  creator            User?
-  createdAt          DateTime @default(now())
+  id               Int      @id @default(autoincrement())
+  productId        Int
+  saleId           Int?
+  purchaseId       Int?
+  product          Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sale             Sale?    @relation(fields: [saleId], references: [id], onDelete: SetNull)
+  purchase         Purchase? @relation(fields: [purchaseId], references: [id], onDelete: SetNull)
+  movementType     String
+  previousBalance  Int
+  differenceBalance Int
+  newBalance       Int
+  createdAt        DateTime @default(now())
 }
 
 model Purchase {
   id           Int      @id @default(autoincrement())
-  supplierId   Entity   @relation(fields: [supplierId], references: [id])
-  buyerId      Employee @relation(fields: [buyerId], references: [id])
-  discount     Decimal(10, 4)?
-  creator      User?
-  updater      User?
+  supplierId   Int
+  buyerId      Int
+  supplier     Entity   @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  buyer        Employee @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+  discount     Decimal? // Removido (10, 4)
+  createdAt    DateTime @default(now())
 }
 
-model ItemSale {
-  id                 Int      @id @default(autoincrement())
-  saleId             Sale    @relation(fields: [saleId], references: [id])
-  type               String
-  productId          Product? @relation(fields: [productId], references: [id])
-  serviceId          Service? @relation(fields: [serviceId], references: [id])
-  discountItem       Decimal(10, 4)?
-  quantity           Decimal(10, 4)
-  unitPrice          Decimal(10, 2)
-  value              Decimal(10, 2)
-  creator            User?
-  updater            User?
+
+model PurchaseOrder {
+  id           Int      @id @default(autoincrement())
+  productId    Int
+  purchaseId   Int
+  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  purchase     Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  quantity     Int
+  salePrice    Decimal  // Removido (10, 2)
+  createdAt    DateTime @default(now())
 }
 
-model ItemPurchase {
-  id                 Int      @id @default(autoincrement())
-  purchaseId         Purchase @relation(fields: [purchaseId], references: [id])
-  type               String
-  productId          Product? @relation(fields: [productId], references: [id])
-  serviceId          Service? @relation(fields: [serviceId], references: [id])
-  discountItem       Decimal(10, 4)?
-  quantity           Decimal(10, 4)
-  unitPrice          Decimal(10, 2)
-  value              Decimal(10, 2)
-  validDate          Date?
-  creator            User?
-  updater            User?
-}
