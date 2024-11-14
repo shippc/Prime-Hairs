@@ -457,8 +457,12 @@ input {
   row-gap: 3rem;
 }
 
+
 .home-data-subtitle,
-.home-data-title,
+.home-data-title {
+  color: var(--white-color);
+}
+
 .home-social-link,
 .home-info {
   color: var(--first-color);
@@ -1175,7 +1179,8 @@ input {
 }
 
 .form {
-  max-width: 1200px; /* Aumentando a largura máxima do formulário */
+  max-width: 1200px;
+  /* Aumentando a largura máxima do formulário */
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -1195,12 +1200,15 @@ input {
 .grid-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* Espaçamento entre os campos */
+  gap: 15px;
+  /* Espaçamento entre os campos */
 }
 
 .grid-item {
-  flex: 1 1 calc(25% - 15px); /* Cada campo ocupa 25% do espaço, ajustando para o gap */
-  min-width: 220px; /* Largura mínima para os campos */
+  flex: 1 1 calc(25% - 15px);
+  /* Cada campo ocupa 25% do espaço, ajustando para o gap */
+  min-width: 220px;
+  /* Largura mínima para os campos */
 }
 
 label {
@@ -1263,8 +1271,13 @@ label {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Content hidden until preloader is gone */
